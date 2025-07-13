@@ -20,9 +20,12 @@ export default function Hero() {
 	}, []);
 
 	return (
-		<div key={id}>
-			<h3>{hero.name}</h3>
-			<img src={hero.image} />
+		<div
+			key={id}
+			className="flex flex-col text-center items-center gap-[2rem]"
+		>
+			<h3 className="text-4xl">{hero.name}</h3>
+			<img src={hero.image} className="max-h-[70vh] w-fit" />
 			<p>Created by: {hero.creators}</p>
 			<p>Aliases: {hero.aliases}</p>
 			<p>Partnerships: {hero.partnerships}</p>

@@ -1,1 +1,23 @@
 @import 'tailwindcss';
+
+* {
+	box-sizing: content-box;
+}
+
+body {
+	background-color: lightgrey;
+}
+
+input {
+	border: 0.1rem;
+	border-style: solid;
+	width: 40vw;
+	margin: 1rem;
+	padding: 0.25em;
+}
+
+button {
+	width: fit-content;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
