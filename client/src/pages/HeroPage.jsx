@@ -17,7 +17,7 @@ export default function Hero() {
 		}
 
 		fetchData();
-	});
+	}, []);
 
 	return (
 		<div key={id}>

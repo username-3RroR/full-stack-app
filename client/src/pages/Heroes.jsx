@@ -13,6 +13,12 @@ export default function Heroes() {
 		}
 
 		fetchData();
+
+		const intv = setInterval(fetchData, 2000);
+
+		return () => {
+			clearInterval(intv);
+		};
 	}, []);
 
 	return (

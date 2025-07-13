@@ -147,3 +147,7 @@ ON heroes.id = heroes_universes.hero_id
 INNER JOIN universes
 ON universes.id = heroes_universes.universe_id
 GROUP BY universes.name
+
+
+-- post form
+INSERT INTO heroes (name, image, creators, aliases, partnerships) VALUES ($1, $2, $3, $4, $5)

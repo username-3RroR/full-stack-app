@@ -52,8 +52,8 @@ app.get('/heroes/hero/:id', async (req, res) => {
 		const hero = await db.query(`SELECT * FROM heroes WHERE id = $1`, [id]);
 
 		res.status(200).json(hero.rows);
-	} catch (e) {
-		res.status(500).json({ error: e });
+	} catch (err) {
+		res.status(500).json({ error: err });
 	}
 });
 
@@ -61,6 +61,27 @@ app.get('/abilities', async (req, res) => {
 	const a = await db.query('SELECT * FROM abilities');
 
 	res.json(a.rows);
+});
+
+//
+
+app.post('/heroes', async (req, res) => {
+	try {
+		const { name, image, creators, aliases, partnerships } = req.body;
+		const formData = await db.query(
+			`INSERT INTO heroes (name, image, creators, aliases, partnerships) VALUES ($1, $2, $3, $4, $5)`,
+			[name, image, creators, aliases, partnerships]
+			// `INSERT INTO heroes_universes (hero_id, universe_id)
+			// SELECT heroes.id, universes.id
+			// INNER JOIN universes
+			// ON universes.id = heroes_universes.universe_id
+			// WHERE universes.name = ($1)`,
+			// [u]
+		);
+		res.status(201).json('New post created');
+	} catch (err) {
+		res.status(500).json({ error: err });
+	}
 });
 
 //

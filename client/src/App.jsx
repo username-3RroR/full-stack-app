@@ -6,13 +6,14 @@ import { Routes, Route } from 'react-router';
 import Heroes from './pages/Heroes';
 import Hero from './pages/HeroPage';
 import Sort from './components/Sort';
+import Form from './pages/Form';
 
 export default function App() {
 	// const [count, setCount] = useState(0);
 
 	return (
 		<>
-			<Sort />
+			<Form />
 			<Routes>
 				<Route path="/" element={<h1>HOME</h1>} />
 
