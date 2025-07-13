@@ -18,7 +18,7 @@ export default function Form() {
 		e.preventDefault();
 		try {
 			const res = await fetch(
-				`http://localhost:8080/heroes`,
+				`https://full-stack-app-91p0.onrender.com/heroes`,
 				{
 					method: 'POST',
 					headers: {

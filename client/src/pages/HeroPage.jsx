@@ -8,7 +8,9 @@ export default function Hero() {
 
 	useEffect(() => {
 		async function fetchData() {
-			const res = await fetch(`http://localhost:8080/heroes/hero/${id}`);
+			const res = await fetch(
+				`https://full-stack-app-91p0.onrender.com/heroes/hero/${id}`
+			);
 			const data = await res.json();
 
 			console.log(data);
