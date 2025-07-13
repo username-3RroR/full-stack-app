@@ -117,3 +117,33 @@ INSERT INTO heroes_abilities (hero_id, ability_id) VALUES
 (10, 6), -- Catwoman: Martial Arts
 (10, 9), -- Catwoman: Agility
 (10, 11); -- Catwoman: Thievery
+
+
+-------------------------------------------------------------------------
+
+-- filter based on universe
+SELECT heroes.name AS h, universes.name AS u
+FROM heroes
+INNER JOIN heroes_universes
+ON heroes.id = heroes_universes.hero_id
+INNER JOIN universes
+ON universes.id = heroes_universes.universe_id
+WHERE universes.name = 'DC Comics'
+
+SELECT heroes.name AS h, universes.name AS u
+FROM heroes
+INNER JOIN heroes_universes
+ON heroes.id = heroes_universes.hero_id
+INNER JOIN universes
+ON universes.id = heroes_universes.universe_id
+WHERE universes.name = 'Marvel Comics'
+
+
+-- arrays
+SELECT universes.name AS u, ARRAY_AGG(heroes.name)
+FROM heroes
+INNER JOIN heroes_universes
+ON heroes.id = heroes_universes.hero_id
+INNER JOIN universes
+ON universes.id = heroes_universes.universe_id
+GROUP BY universes.name
